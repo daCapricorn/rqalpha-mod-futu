@@ -16,7 +16,10 @@
 # limitations under the License.
 
 from os.path import dirname, join
-from pip.req import parse_requirements
+try:
+    from pip._internal.req import parse_requirements
+except ModuleNotFoundError:
+    from pip.req import parse_requirements
 
 from setuptools import (
     find_packages,
